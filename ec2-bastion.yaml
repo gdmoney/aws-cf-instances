@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Create a learning account EC2 web server instance in a private subnet
+
+Parameters:
+  NAME:
+    Type: String
+    Default: bastion
+  IAMINSTANCEPROFILE: 
+    Type: String
+    Default: ec2admin
+  IMAGEID:
+    Type: AWS::EC2::Image::Id
+    Default: ami-0664ba3b9c9126195
+  INSTANCETYPE: 
+    Type: String
+    Default: t2.micro
+  SUBNET: 
+    Type: String
+    Description: IngressSubnetAz1
+    Default: subnet-07820dcc61795a717
+
+Resources: 
+  ENI1:
+    Type: AWS::EC2::NetworkInterface
+    Properties:
+      SubnetId: !Ref SUBNET
+      Tags:
+        - Key: Name
+          Value: !Ref NAME
+      GroupSet:
+        - Fn::ImportValue: SG-Intra-VPC
+  INSTANCE1:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      IamInstanceProfile: !Ref IAMINSTANCEPROFILE
+      ImageId: !Ref IMAGEID
+      InstanceType: !Ref INSTANCETYPE
+      KeyName: !Ref NAME
+      Tags:
+        - Key: Name
+          Value: !Ref NAME
+      NetworkInterfaces: 
+        - NetworkInterfaceId: !Ref ENI1
+          DeviceIndex: 0
