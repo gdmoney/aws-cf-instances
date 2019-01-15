@@ -4,7 +4,7 @@ Description: Create a learning account EC2 web server instance in a private subn
 Parameters:
   NAME:
     Type: String
-    Default: instance4
+    Default: server-4
   IAMINSTANCEPROFILE: 
     Type: String
     Default: bastion-InstanceProfile-1UW06V8GJ9YYG
