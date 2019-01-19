@@ -4,7 +4,7 @@ Description: Create a learning account EC2 web server instance in a private subn
 Parameters:
   NAME:
     Type: String
-    Default: server-4
+    Default: server
   IAMINSTANCEPROFILE: 
     Type: String
     Default: ec2admin
