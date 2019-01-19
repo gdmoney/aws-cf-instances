@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: Create a bastion host instance in a public subnet
+Description: Create a bastion host instance in a public subnet.
 
 Parameters:
   NAME:
