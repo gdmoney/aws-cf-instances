@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: Create a learning account EC2 web server instance in a private subnet
+Description: Create a learning account EC2 web server instance in a private subnet.
 
 Parameters:
   NAME:
