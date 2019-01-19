@@ -14,15 +14,16 @@ Parameters:
   INSTANCETYPE: 
     Type: String
     Default: t2.micro
-  SUBNETPRIVATEAZ1: 
+  SUBNET: 
     Type: String
+    Description: PrivateSubnetAz1
     Default: subnet-0ab80861a227e05ed
 
 Resources: 
   ENI1:
     Type: AWS::EC2::NetworkInterface
     Properties:
-      SubnetId: !Ref SUBNETPRIVATEAZ1
+      SubnetId: !Ref SUBNET
       Tags:
         - Key: Name
           Value: !Ref NAME
