@@ -1,2 +1,2 @@
 # cf-instances
-Collection of various EC2 instance templates.
+Collection of EC2 instance templates.
